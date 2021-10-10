@@ -56,6 +56,4 @@ export default /*#__PURE__*/Vue.extend({
   <div class="pa-0" id="terminal" style="height: 100%"></div>
 </template>
 
-<style>
-    @import '../node_modules/xterm/css/xterm.css';
-</style>
+<style src='../node_modules/xterm/css/xterm.css' />
