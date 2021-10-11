@@ -18,26 +18,22 @@ export default class StdOut {
      */
     print(buffer: string, offset = 0): void {
         let cols = this.term.cols - offset;
-        buffer.split('\n').map(line => {
-            while (line.length) {
-                if (line.length <= cols) {
-                    this.term.write(line + '\n\r');
-                    cols = this.term.cols;
-                    return;
-                }
-                let l = cols;
-                if (line[l+1] === ' ') {
-                    this.term.write(line.slice(0,l+1) + '\n\r');
-                    line = line.slice(l+2)
-                }
-                else {
-                    while (line[l] !== ' ' && l > 0) l--;
-                    this.term.write(line.slice(0,l) + '\n\r');
-                    line = line.slice(l+1)
-                }
-                cols = this.term.cols;
+        let last_space = 0;
+        for(let c = 0; c < buffer.length; c++) {
+            let newline = false;
+            if (c >= cols) {
+                c = last_space;
+                newline = true;
             }
-        })
+            else if (c < buffer.length-1 && buffer[c] !== '\n') {
+                if (buffer[c] === ' ') last_space = c;
+                continue;
+            }
+            this.term.write(buffer.slice(0,c+1).replace('\n','\n\r') + (newline?'\n\r':''));
+            buffer = buffer.slice(c+1);
+            c = -1;
+            last_space = 0;
+        }
     }
 
 }
