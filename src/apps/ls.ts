@@ -3,7 +3,7 @@ import NuxtTerminalApp from "./App";
 
 export default class ls extends NuxtTerminalApp {
     
-    async run(args: string[]): Promise<number> {
+    async main(args: string[]): Promise<number> {
 
         let path = args[1] || '';
 
@@ -17,14 +17,14 @@ export default class ls extends NuxtTerminalApp {
                 return -1;
             }
             if (node instanceof File) {
-                this.stdout.print(`\t${node.name}\t(file)`);
+                this.stdout.print(`file  ${node.name}\n`);
                 return -1;
             }
         }
 
         Object.keys(node.children).map(ch => {
-            if (node.children[ch] instanceof File) this.stdout.print(`file  ${ch}`)
-            else this.stdout.print(`dir   \x1B[0;36m${ch}\x1B[0m`)
+            if (node.children[ch] instanceof File) this.stdout.print(`file  ${ch}\n`)
+            else this.stdout.print(`dir   \x1B[0;36m${ch}\x1B[0m\n`)
         })
 
         return 0;

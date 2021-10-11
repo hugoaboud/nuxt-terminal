@@ -132,17 +132,16 @@ export default class Shell {
         
         if (buffer.length) {
             let args = buffer.split(' ')
-            console.log(args);
 
             if (this.apps[args[0]]) {
                 // @ts-ignore: cant construct abstract NuxtTerminalApp.
                 // you should obviously only pass NuxtTerminalApp implementations to this.apps
                 let app = new this.apps[args[0]](this.fs, this.folder, this.stdout);
-                await app.run(args);
+                await app.main(args);
             }
             else if (args[0] === 'clear') this.term.reset();
             else if (args[0] === 'cd') this.cd(args[1]);
-            else this.stdout.print(`shell: ${buffer}: command not found`);
+            else this.term.write(`shell: ${buffer}: command not found\n\r`);
 
             this.history.unshift(buffer);
             if (this.history.length > 10) this.history.pop();

@@ -9,6 +9,6 @@ export default abstract class NuxtTerminalApp {
         protected stdout: StdOut
     ) {}
 
-    abstract run(args: string[]): Promise<number>
+    abstract main(args: string[]): Promise<number>
 
 }

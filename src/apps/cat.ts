@@ -3,10 +3,10 @@ import NuxtTerminalApp from "./App";
 
 export default class cat extends NuxtTerminalApp {
 
-    async run(args: string[]): Promise<number> {
+    async main(args: string[]): Promise<number> {
 
         if (args.length < 2) {
-            this.stdout.print('cat: No file specified.');
+            this.stdout.print('cat: No file specified.\n');
             return -1;
         }
 
@@ -15,16 +15,16 @@ export default class cat extends NuxtTerminalApp {
             node = this.fs.node(this.node, args[1]);
         }
         catch (e) {
-            this.stdout.print(`cat: File ${args[1]} not found`)
+            this.stdout.print(`cat: ${args[1]}: No such file or directory\n`)
             return -1;
         }
 
         if (node instanceof Folder) {
-            this.stdout.print(`cat: '${args[1]}': Is a directory`);
+            this.stdout.print(`cat: ${args[1]}: Is a directory\n`);
             return -1;
         }
 
-        this.stdout.print((node as File).content.replace(/\n/g,'\n\r'));
+        this.stdout.print((node as File).content + '\n');
         return 0;
 
     }
