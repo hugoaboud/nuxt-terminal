@@ -1,6 +1,6 @@
 {
-  "name": "nuxt-terminal",
-  "version": "0.0.3",
+  "name": "nuxt-terminal-debug",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/nuxt-terminal.ssr.js",
   "browser": "dist/nuxt-terminal.esm.js",

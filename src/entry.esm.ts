@@ -27,13 +27,13 @@ export default /*#__PURE__*/((): InstallableComponent => {
 import _Color from '@/os/color'
 export const Color = _Color
 
-import _INode from '@/os/filesystem'
+import { INode as _INode} from '@/os/filesystem'
 export const INode = _INode
 
-import _Folder from '@/os/filesystem'
+import { Folder as _Folder} from '@/os/filesystem'
 export const Folder = _Folder
 
-import _File from '@/os/filesystem'
+import { File as _File} from '@/os/filesystem'
 export const File = _File
 
 import _Filesystem from '@/os/filesystem'

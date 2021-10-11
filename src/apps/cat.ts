@@ -7,6 +7,7 @@ export default class cat extends NuxtTerminalApp {
 
         if (args.length < 2) {
             this.stdout.print('cat: No file specified.');
+            return -1;
         }
 
         let node = null;
