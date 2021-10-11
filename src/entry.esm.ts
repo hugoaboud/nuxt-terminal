@@ -24,5 +24,20 @@ export default /*#__PURE__*/((): InstallableComponent => {
 // also be used as directives, etc. - eg. import { RollupDemoDirective } from 'rollup-demo';
 // export const RollupDemoDirective = directive;
 
-export const Color = require("@/os/filesystem").Color
-export const Filesystem = require("@/os/filesystem")
+import _Color from '@/os/color'
+export const Color = _Color
+
+import _INode from '@/os/filesystem'
+export const INode = _INode
+
+import _Folder from '@/os/filesystem'
+export const Folder = _Folder
+
+import _File from '@/os/filesystem'
+export const File = _File
+
+import _Filesystem from '@/os/filesystem'
+export const Filesystem = _Filesystem
+
+import _NuxtTerminalApp from '@/apps/App'
+export const NuxtTerminalApp = _NuxtTerminalApp

@@ -1,6 +1,6 @@
 {
   "name": "nuxt-terminal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "dist/nuxt-terminal.ssr.js",
   "browser": "dist/nuxt-terminal.esm.js",
@@ -10,7 +10,9 @@
   "files": [
     "dist/*",
     "src/**/*.vue",
-    "nuxt/"
+    "src/os/*.ts",
+    "src/apps/*.ts",
+    "plugin.client.js"
   ],
   "sideEffects": false,
   "scripts": {

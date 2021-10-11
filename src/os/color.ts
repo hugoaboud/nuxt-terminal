@@ -1,17 +1,17 @@
-export module Color {
-    export function Red(str: string) {
+export default class Color {
+    static Red(str: string) {
         return '\x1B[0;31m' + str + '\x1B[0m';
     }
-    export function Green(str: string) {
+    static Green(str: string) {
         return '\x1B[0;32m' + str + '\x1B[0m';
     }
-    export function Blue(str: string) {
+    static Blue(str: string) {
         return '\x1B[0;34m' + str + '\x1B[0m';
     }
-    export function Purple(str: string) {
+    static Purple(str: string) {
         return '\x1B[0;35m' + str + '\x1B[0m';
     }
-    export function Cyan(str: string) {
+    static Cyan(str: string) {
         return '\x1B[0;36m' + str + '\x1B[0m';
     }
 }

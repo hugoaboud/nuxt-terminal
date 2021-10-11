@@ -2,7 +2,7 @@
 import Filesystem, { Folder, File } from '../src/os/filesystem';
 import Vue from 'vue';
 import NuxtTerminal from '@/nuxt-terminal.vue';
-import { Color } from '../src/os/color';
+import Color from '../src/os/color';
 
 import help from './apps/help'
 

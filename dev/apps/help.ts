@@ -1,7 +1,7 @@
-import { Color } from '@/os/color';
-import { TerminalApp } from '../../src/apps/TerminalApp'
+import Color from '@/os/color';
+import NuxtTerminalApp from '../../src/apps/App'
 
-export default class help extends TerminalApp {
+export default class help extends NuxtTerminalApp {
 
     async run(): Promise<number> {
 

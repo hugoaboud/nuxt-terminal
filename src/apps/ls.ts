@@ -1,7 +1,7 @@
 import { File } from "@/os/filesystem";
-import { TerminalApp } from "./TerminalApp";
+import NuxtTerminalApp from "./App";
 
-export default class ls extends TerminalApp {
+export default class ls extends NuxtTerminalApp {
     
     async run(args: string[]): Promise<number> {
 

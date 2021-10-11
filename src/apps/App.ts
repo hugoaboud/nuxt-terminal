@@ -1,7 +1,7 @@
 import Filesystem, { INode } from "@/os/filesystem";
 import StdOut from "@/os/stdout";
 
-export abstract class TerminalApp {
+export default abstract class NuxtTerminalApp {
 
     constructor(
         protected fs: Filesystem,
