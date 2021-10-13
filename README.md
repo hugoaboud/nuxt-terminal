@@ -71,7 +71,7 @@ You should not use `computed` for the `filesystem` or the `apps` parameter.
 ```html
 <script lang="ts">
 import Vue from 'vue'
-import { Filesystem, Folder, File, NuxtTerminalApp } from 'nuxt-terminal-debug'
+import { Filesystem, Folder, File, NuxtTerminalApp } from 'nuxt-terminal'
 
 export default Vue.extend({
   data: () => ({
