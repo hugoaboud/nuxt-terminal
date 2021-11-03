@@ -4,6 +4,7 @@ import NuxtTerminalApp from "@/apps/App";
 import { Terminal } from "xterm";
 import Filesystem, { Folder } from "./filesystem";
 import StdOut from "./stdout";
+import { VueConstructor } from "vue/types/umd";
 
 export default class Shell {
 
@@ -21,6 +22,7 @@ export default class Shell {
     apps: Record<string, typeof NuxtTerminalApp>
 
     constructor(
+        private vue: VueConstructor<any>,
         private term: Terminal,
         private fs: Filesystem,
         private stdout: StdOut,
@@ -136,7 +138,7 @@ export default class Shell {
             if (this.apps[args[0]]) {
                 // @ts-ignore: cant construct abstract NuxtTerminalApp.
                 // you should obviously only pass NuxtTerminalApp implementations to this.apps
-                let app = new this.apps[args[0]](this.fs, this.folder, this.stdout);
+                let app = new this.apps[args[0]](this.vue, this.fs, this.folder, this.stdout);
                 await app.main(args);
             }
             else if (args[0] === 'clear') this.term.reset();

@@ -7,9 +7,13 @@ import Color from '../src/os/color';
 import help from './apps/help'
 import NuxtTerminalApp from '@/apps/App';
 
-class example extends NuxtTerminalApp {
-  async main(_args: string[]): Promise<number> {
-    this.stdout.print('The app has access to the shell stdout.\n');
+class user extends NuxtTerminalApp {
+  async main(args: string[]): Promise<number> {
+    if (args.length < 2) {
+      this.stdout.print(Color.Red('No username specified.') + ' Usage: \'user NAME\'\n');
+    }
+    this.vue.user = args[1];
+    this.vue.alert('qual foi');
     return 0;
   }
 }
@@ -36,9 +40,17 @@ export default Vue.extend({
     ]),
     apps: [
       help,
-      example
+      user
     ]
-  })
+  }),
+  methods: {
+    alert() {
+      window.alert('oi');
+    }
+  },
+  computed: {
+    this: () => this
+  }
 });
 </script>
 
@@ -50,6 +62,7 @@ export default Vue.extend({
       :welcome = 'welcome'
       :filesystem = 'filesystem'
       :apps = 'apps'
+      :attach = 'this'
       />
   </div>
 </template>
